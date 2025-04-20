@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: desafio_vr
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+
+  backend:
+    build:
+      context: ./desafio-vr-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      PORT: 3000
+      DB_HOST: postgres         
+      DB_PORT: 5432             
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: desafio_vr
+
+  frontend:
+    build:
+      context: ./desafio-vr-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    command: ["ng", "serve", "--host", "0.0.0.0", "--port", "4200", "--public-host", "frontend:4200"]
+    networks:
+      - test-net
+
+  cypress:
+    build:
+      context: ./desafio-vr-frontend
+      dockerfile: Dockerfile.cypress
+    depends_on:
+      - frontend
+    environment:
+      CYPRESS_baseUrl: http://frontend:4200
+    networks:
+      - test-net
+
+volumes:
+  pgdata:
+
+networks:
+  test-net:
