@@ -1,0 +1,103 @@
+.container {
+  margin: 0 2rem;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .toolbar {
+      display: flex;
+      justify-content: left;
+    }
+
+    .title {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .layout {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    .form-container {
+      width: 80vw;
+
+      .form {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20vw;
+      min-height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background-color: #fff;
+      overflow: hidden;
+
+      .image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.loja-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .add-button {
+    position: absolute;
+    left: 0;
+    margin-right: 2rem;
+  }
+
+  .loja-title {
+    margin: 0 auto;
+    font-weight: 500;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  border-collapse: collapse;
+
+  .preco-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .action-button {
+      position: absolute;
+      right: 0;
+
+      .icon-button {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+th,
+td,
+tbody,
+table {
+  text-align: center;
+}

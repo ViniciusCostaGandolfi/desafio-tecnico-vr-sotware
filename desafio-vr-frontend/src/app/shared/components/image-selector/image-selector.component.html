@@ -1,0 +1,28 @@
+<div class="image-preview-container" *ngIf="imagemBase64">
+    <div class="image-wrapper">
+      <button mat-icon-button color="warn" class="remove-button"
+              (click)="clearSelectedImage()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <div class="image-frame">
+        <img [src]="imagemBase64" class="preview-img" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="image-selector" *ngIf="!imagemBase64">
+    <label class="upload-box">
+      <div class="upload-box__content">
+        <mat-icon class="upload-icon">
+          {{ imagemBase64 ? 'check_circle' : 'cloud_upload' }}
+        </mat-icon>
+        <p class="upload-title">
+          {{ imagemBase64 ? 'Imagem Selecionada' : 'Clique para Selecionar ou Arraste Aqui' }}
+        </p>
+        <p class="upload-subtitle">Aceitamos apenas PNG ou JPG</p>
+      </div>
+      <input type="file" accept="image/png,image/jpeg"
+             (change)="onFileSelected($event)" hidden />
+    </label>
+  </div>
+  

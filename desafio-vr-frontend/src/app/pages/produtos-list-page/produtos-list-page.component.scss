@@ -1,0 +1,64 @@
+.container {
+    margin: 0 2rem;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .title {
+            width: 100%;
+            text-align: center;
+        }
+
+        .toolbar {
+            position: relative;
+            left: 0;
+        }
+    }
+
+    .filters {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        .custo-cell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .action-button {
+                position: absolute;
+                right: 0;
+
+                .icon-button {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+th,
+td,
+tbody,
+table {
+    text-align: center;
+}

@@ -1,0 +1,37 @@
+<div class="dialog-title" mat-dialog-title>
+    <div class="dialog-action">
+      <button mat-icon-button color="primary" (click)="onSubmit()" matTooltip="Salvar">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  
+    <div class="dialog-heading">
+      <p class="title">Alteração/Inclusão de Preço</p>
+    </div>
+  
+    <div class="dialog-action">
+      <button mat-icon-button color="warn" type="button" (click)="onCancel()" matTooltip="Cancelar">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+<form mat-dialog-content [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+  <div>
+    <mat-label>Loja</mat-label>
+    <mat-form-field appearance="outline" class="w-full">
+        <mat-select formControlName="lojaId">
+          <mat-option *ngFor="let loja of lojas" [value]="loja.id">
+            {{ loja.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+ <div>
+   <mat-label>Preço de Venda (R$)</mat-label>
+    <mat-form-field appearance="outline" class="w-full">
+        <input matInput formControlName="precoVenda" appReplaceDotWithComma  [allowEmpty]="false" />
+      </mat-form-field>
+ </div>
+</form>

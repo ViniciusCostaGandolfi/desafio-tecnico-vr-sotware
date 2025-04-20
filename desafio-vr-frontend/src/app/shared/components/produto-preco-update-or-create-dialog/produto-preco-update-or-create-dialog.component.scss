@@ -1,0 +1,38 @@
+.dialog-form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    padding-top: 10px;
+}
+
+.dialog-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    border-bottom: 1px solid #333333;
+
+
+    .dialog-action {
+        flex: 0 0 auto;
+    }
+
+    .dialog-heading {
+        flex: 1 1 auto;
+        text-align: center;
+
+        .title {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+    }
+}
+.form-field {
+    flex-direction: column;
+    display: flex;
+}
+
