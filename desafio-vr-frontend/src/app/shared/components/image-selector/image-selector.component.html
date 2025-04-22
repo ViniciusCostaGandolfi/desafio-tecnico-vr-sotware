@@ -11,13 +11,14 @@
   </div>
   
   <div class="image-selector" *ngIf="!imagemBase64">
-    <label class="upload-box">
+    <label class="upload-box" (dragover)="onDragOver($event)"
+    (drop)="onFileDropped($event)">
       <div class="upload-box__content">
         <mat-icon class="upload-icon">
           {{ imagemBase64 ? 'check_circle' : 'cloud_upload' }}
         </mat-icon>
         <p class="upload-title">
-          {{ imagemBase64 ? 'Imagem Selecionada' : 'Clique para Selecionar ou Arraste Aqui' }}
+          {{ imagemBase64 ? 'Imagem Selecionada' : 'Clique ou arraste para Selecionar' }}
         </p>
         <p class="upload-subtitle">Aceitamos apenas PNG ou JPG</p>
       </div>
