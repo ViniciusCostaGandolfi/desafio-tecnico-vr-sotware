@@ -27,7 +27,6 @@ export class ReplaceDotWithCommaDirective {
   
     const valueOnlyDigits = input.value.replace(/\D/g, '');
   
-    // Impede apagar quando já está no mínimo permitido de dígitos (ex: só decimais)
     const isDeleting = event.key === 'Backspace' || event.key === 'Delete';
     const isBelowMin = valueOnlyDigits.length <= this.decimalPlaces;
   
